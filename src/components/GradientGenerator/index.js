@@ -19,9 +19,23 @@ const gradientDirectionsList = [
 ]
 
 class GradientGenerator extends Component {
+  state = {
+    color1: '#8ae323',
+    color2: '#014f7b',
+  }
+
+  selectColor1 = event => {
+    this.setState({color1: event.target.value})
+  }
+
+  selectColor2 = event => {
+    this.setState({color2: event.target.value})
+  }
+
   render() {
+    const {color1, color2} = this.state
     return (
-      <GradientGeneratorContainer>
+      <GradientGeneratorContainer color1={color1} color2={color2}>
         <Heading>Generate a CSS Color Gradient</Heading>
         <Heading as="p">Choose a Direction</Heading>
         <GradientDirectionItemContainer>
@@ -35,12 +49,20 @@ class GradientGenerator extends Component {
         <Heading as="p">Pick the Colors</Heading>
         <RandomColorSelectMasterContainer>
           <RandomColorSelectContainer>
-            <p>#8ae323</p>
-            <ColorContainer type="color" />
+            <p>{color1}</p>
+            <ColorContainer
+              value={color1}
+              onChange={this.selectColor1}
+              type="color"
+            />
           </RandomColorSelectContainer>
           <RandomColorSelectContainer>
-            <p>#014f7b</p>
-            <ColorContainer type="color" />
+            <p>{color2}</p>
+            <ColorContainer
+              value={color2}
+              onChange={this.selectColor2}
+              type="color"
+            />
           </RandomColorSelectContainer>
         </RandomColorSelectMasterContainer>
         <GenerateBtn type="button">Generate</GenerateBtn>

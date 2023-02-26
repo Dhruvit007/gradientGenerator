@@ -6,19 +6,23 @@ export const GradientGeneratorContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: green;
+  background-image: linear-gradient(${props => props.gradientValue});
   font-family: 'Roboto';
+  padding: 40px;
+  text-align: center;
 `
 export const Heading = styled.h1`
   color: #ededed;
   font-family: 'Roboto';
 `
-export const GradientDirectionItemContainer = styled.div`
+export const GradientDirectionItemContainer = styled.ul`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
   width: 400px;
+  padding-left: 0px;
+  padding: 20px;
 `
 export const RandomColorSelectContainer = styled.div`
   display: flex;
